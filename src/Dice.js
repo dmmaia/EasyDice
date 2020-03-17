@@ -20,6 +20,9 @@ export default function Dice(props){
 			case 'd12':
 			dice_require = require("../assets/d12.png");
 			break;
+			case 'd20':
+			dice_require = require("../assets/d20.png");
+			break;
 		}
 	
 	

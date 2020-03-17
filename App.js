@@ -42,6 +42,10 @@ export default class App extends React.Component {
        <Dice dice="d12"/>
       </TouchableOpacity>
 
+      <TouchableOpacity onPress={() => this.setState({display:1, newRollContent:[diceResult("d20",this.state.cont)]})} style={styles.dice}>
+       <Dice dice="d20"/>
+      </TouchableOpacity>
+
       <TouchableOpacity style={handleDisplayRoll(this.state.display)} onPress={() => this.setState({display:0})}>
           <Roll display={this.state.display} newRoll={this.state.newRollContent}/>
         </TouchableOpacity>
@@ -56,7 +60,7 @@ export default class App extends React.Component {
           iconSize={25}
           step={1.7}
           minValue={1}
-          maxValue={7}
+          maxValue={7} 
         />
       </View>
       </>
@@ -71,7 +75,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexWrap: 'wrap',
     paddingTop: 50,
-    backgroundColor: '#f9ebd5',
+    backgroundColor: '#000000',
     
   },
   rollStyle : {
@@ -80,7 +84,7 @@ const styles = StyleSheet.create({
     left: 52,
     width: 250,
     height: 250,
-    backgroundColor: '#aba9a9',
+    backgroundColor: 'white',
     justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
@@ -129,6 +133,9 @@ function handleDisplayRoll(e){
     break;
     case 'd12':
     roll = Math.random()*(13-1) + 1;
+    break;
+    case 'd20':
+    roll = Math.random()*(21-1) + 1;
     break;
   }
   realroll = parseInt(roll);
